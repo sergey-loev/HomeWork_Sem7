@@ -15,7 +15,7 @@ public final class Calculator implements Calculable {
     @Override
     public void sum(double a, double b) {
         double tempResult = a + b;
-        result+= tempResult;
+        this.result+= tempResult;
         String logMessage = ("Sum: (" + a + ") + (" + b + ")");
         cl.log(logMessage);
     }
@@ -23,7 +23,7 @@ public final class Calculator implements Calculable {
     @Override
     public void multiply(double a, double b) {
         double tempResult = a * b;
-        result+= tempResult;
+        this.result+= tempResult;
         String logMessage = ("multiply: (" + a + ") * (" + b + ")");
         cl.log(logMessage);
     }
@@ -32,7 +32,7 @@ public final class Calculator implements Calculable {
     public void divide(double a, double b) {
         try {
             double tempResult = a / b;
-            result+= tempResult;
+            this.result+= tempResult;
             String logMessage = ("Divide: (" + a + ") / (" + b + ")");
             cl.log(logMessage);
         } catch (ArithmeticException e) {
@@ -43,15 +43,16 @@ public final class Calculator implements Calculable {
     @Override
     public void subtraction(double a, double b) {
         double tempResult = a - b;
-        result+= tempResult;
+        this.result+= tempResult;
         String logMessage = ("Subtraction: (" + a + ") - (" + b + ")");
         cl.log(logMessage);
     }
 
     @Override
     public double result() {
-        System.out.printf("Result: %s%n", result);
-        return result;
+        String logMessage = ("Result: (" + this.result + ")");
+        cl.log(logMessage);
+        return this.result;
     }
 
     @Override
